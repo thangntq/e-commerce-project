@@ -1,0 +1,32 @@
+Category ID,Category Name
+3,Computers
+8,  Computer Components
+22,    CPU Processors Unit
+23,    Graphic Cards
+24,    Internal Hard Drives
+25,    Internal Optical Drives
+29,    Memory
+30,    Motherboard
+31,    Network Cards
+26,    Power Supplies
+27,    Solid State Drives
+28,    Sound Cards
+5,  Desktops
+6,  Laptops
+7,  Tablets
+1,Electronics
+2,  Camera & Photo
+9,    Bags & Cases
+10,    Digital Cameras
+11,    Flashes
+12,    Lenses
+13,    Tripods & Monopods
+4,  Cell Phones & Accessories
+16,    Accessories
+17,      Cables & Adapters
+20,      Cases
+21,      Headphones
+18,      MicroSD Cards
+19,      Stands
+14,    Carrier Cell Phones
+15,    Unlocked Cell Phones
