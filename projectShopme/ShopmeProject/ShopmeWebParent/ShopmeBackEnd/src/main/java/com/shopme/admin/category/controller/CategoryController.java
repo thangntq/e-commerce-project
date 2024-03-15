@@ -80,7 +80,7 @@ public class CategoryController {
             category.setImage(fileName);
 
             Category savedCategory = categoryService.save(category);
-            String uploadDir = "../category-images/" + savedCategory.getId();
+            String uploadDir = "category-images/" + savedCategory.getId();
 
             FileUploadUtil.cleanDir(uploadDir);
             FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
@@ -122,7 +122,7 @@ public class CategoryController {
 
         try {
             categoryService.delete(id);
-            String categoryDir = "../category-images/"+id;
+            String categoryDir = "category-images/"+id;
             FileUploadUtil.cleanDir(categoryDir);
             FileUploadUtil.removeDir(categoryDir);
             redirectAttributes.addFlashAttribute("message","The category ID " + id + "has been delete successfully");

@@ -18,19 +18,9 @@ public class MvcConfig implements WebMvcConfigurer {
 
         exposeDirectory("user-photos",registry);
 
-        exposeDirectory("../category-images",registry);
+        exposeDirectory("category-images",registry);
 
-        exposeDirectory("../brand-logos",registry);
-        String categoryImagesName = "../category-images" ;
-        Path categoryImagesDir = Paths.get(categoryImagesName);
-        String categoryPhotosPath = categoryImagesDir.toFile().getAbsolutePath();
-        registry.addResourceHandler("/category-images/**").addResourceLocations("file:/"+ categoryPhotosPath +"/");
-        log.info(categoryPhotosPath);
-
-        String brandLogosDirName = "../brand-logos";
-        Path brandLogosDir = Paths.get(brandLogosDirName);
-        String brandLogosPath = brandLogosDir.toFile().getAbsolutePath();
-        registry.addResourceHandler("/brand-logos/**").addResourceLocations("file:/"+brandLogosPath+"/");
+        exposeDirectory("brand-logos",registry);
     }
 
     private void exposeDirectory(String pathPatern, ResourceHandlerRegistry registry){

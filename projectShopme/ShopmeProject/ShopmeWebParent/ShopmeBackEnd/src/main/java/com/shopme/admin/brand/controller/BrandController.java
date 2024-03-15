@@ -53,7 +53,7 @@ public class BrandController {
 
             Brand saveBrand = brandService.save(brand);
 
-            String uploadDir = "../brand-logos/"+saveBrand.getId();
+            String uploadDir = "brand-logos/"+saveBrand.getId();
             FileUploadUtil.cleanDir(uploadDir);
             FileUploadUtil.saveFile(uploadDir,fileName,multipartFile);
         }else {
@@ -118,11 +118,11 @@ public class BrandController {
 
         try {
             brandService.delete(id);
-            String brandDir = "../brand-logos/" + id;
+            String brandDir = "brand-logos/" + id;
             FileUploadUtil.cleanDir(brandDir);
             FileUploadUtil.removeDir(brandDir);
 
-            redirectAttributes.addFlashAttribute("messge","The Brand ID " + id + " has been deleted successfully !");
+            redirectAttributes.addFlashAttribute("message","The Brand ID " + id + " has been deleted successfully !");
         } catch (BrandNotFoundException e) {
             redirectAttributes.addFlashAttribute("message",e.getMessage());
         }
