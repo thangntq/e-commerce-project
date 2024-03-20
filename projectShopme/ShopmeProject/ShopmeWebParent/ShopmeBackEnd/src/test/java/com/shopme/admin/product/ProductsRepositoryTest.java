@@ -97,4 +97,21 @@ public class ProductsRepositoryTest {
         assertThat(!result.isPresent());
     }
 
+    @Test
+    public void testSaveProductWithDetails(){
+
+        Integer id = 1;
+
+        Product product = productRepository.findById(id).get();
+
+        product.addDetail("device memory","128 GB");
+        product.addDetail("cpu model","abc");
+        product.addDetail("os","android ");
+
+
+        Product product1 = productRepository.save(product);
+
+        assertThat(product1.getDetails()).isNotEmpty();
+    }
+
 }

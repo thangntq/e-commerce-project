@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 public class ShopmeUserDetails implements UserDetails {
+
     private User user;
 
     public ShopmeUserDetails(User user) {
@@ -69,5 +70,9 @@ public class ShopmeUserDetails implements UserDetails {
     }
     public void setLastName(String lastName){
         this.user.setLastName(lastName);
+    }
+
+    public boolean hasRole(String roleName){
+        return user.hasRole(roleName);
     }
 }

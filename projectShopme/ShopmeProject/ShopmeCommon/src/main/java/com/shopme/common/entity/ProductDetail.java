@@ -5,39 +5,37 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Table(name = "product_details")
 @Getter
 @Setter
-@Table(name = "product_images")
-public class ProductImage {
-
+public class ProductDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "name",nullable = false)
+    @Column(nullable = false,length = 255)
     private String name;
+
+    @Column(nullable = false,length = 255)
+    private String value;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
-    public ProductImage(String name, Product product) {
+    public ProductDetail(String name, String value, Product product) {
         this.name = name;
+        this.value = value;
         this.product = product;
     }
 
-    public ProductImage() {
+    public ProductDetail() {
     }
 
-    public ProductImage(Integer id, String name, Product product) {
+    public ProductDetail(Integer id, String name, String value, Product product) {
         this.id = id;
         this.name = name;
+        this.value = value;
         this.product = product;
-    }
-
-    @Transient
-    public String getImagePath(){
-
-        return "/product-images/"+product.getId()+"/extras/" + this.name;
     }
 }
