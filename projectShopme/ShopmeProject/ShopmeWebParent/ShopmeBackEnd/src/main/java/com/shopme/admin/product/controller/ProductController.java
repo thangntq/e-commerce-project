@@ -3,13 +3,13 @@ package com.shopme.admin.product.controller;
 import com.shopme.admin.FileUploadUtil;
 import com.shopme.admin.brand.service.BrandService;
 import com.shopme.admin.category.Service.CategoryService;
-import com.shopme.admin.product.exception.ProductNotFoundException;
 import com.shopme.admin.product.service.ProductService;
 import com.shopme.admin.security.ShopmeUserDetails;
 import com.shopme.common.entity.Brand;
 import com.shopme.common.entity.Category;
 import com.shopme.common.entity.Product;
-import com.shopme.common.entity.ProductImage;
+
+import com.shopme.common.exception.ProductNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,19 +17,16 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 @Controller
 @RequestMapping("/products")

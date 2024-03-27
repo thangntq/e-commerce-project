@@ -1,10 +1,9 @@
 package com.shopme.admin.category.Service;
 
 import com.shopme.admin.category.CategoryPageInfo;
-import com.shopme.admin.category.exception.CategoryNotFoundException;
 import com.shopme.admin.category.repository.CategoryRepository;
 import com.shopme.common.entity.Category;
-
+import com.shopme.common.exception.CategoryNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,7 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.*;
 
 @Service
@@ -191,7 +189,7 @@ public class CategoryService {
         categoryRepository.updateEnabledStatus(id, enabled);
     }
 
-    public void delete(Integer id) throws CategoryNotFoundException{
+    public void delete(Integer id) throws CategoryNotFoundException {
         Long countById = categoryRepository.countById(id);
         if (countById == null || countById == 0){
             throw  new CategoryNotFoundException("Could not find any category with ID "+id);

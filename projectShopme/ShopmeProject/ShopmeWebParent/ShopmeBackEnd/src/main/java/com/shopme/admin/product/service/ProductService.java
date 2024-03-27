@@ -1,9 +1,10 @@
 package com.shopme.admin.product.service;
 
-import com.shopme.admin.product.exception.ProductNotFoundException;
+
 import com.shopme.admin.product.repository.ProductRepository;
 import com.shopme.common.entity.Brand;
 import com.shopme.common.entity.Product;
+import com.shopme.common.exception.ProductNotFoundException;
 import org.apache.poi.ss.formula.functions.Count;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

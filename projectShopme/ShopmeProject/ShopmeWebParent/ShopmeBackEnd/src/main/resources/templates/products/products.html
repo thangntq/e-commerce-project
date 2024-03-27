@@ -45,17 +45,17 @@
     <table class="table table-bordered table-striped table-hover table-responsive-xl">
       <thead class="thead-dark">
       <tr>
-        <th class="hideale-column">
+        <div class="hideale-column">
           <th th:replace="fragments :: column_link('/products','id','ID','none')"></th>
-        </th>
+        </div>
         <th>Main Image</th>
         <th th:replace="fragments :: column_link('/products','name','Product Name','none')"></th>
-        <th class="hideale-column">
+        <div class="hideale-column">
           <th th:replace="fragments :: column_link('/products','brand','Brand','none')"></th>
-        </th>
-        <th class="hideale-column">
+        </div>
+        <div class="hideale-column">
           <th th:replace="fragments :: column_link('/products','category','Category','none')"></th>
-        </th>
+        </div>
         <th:block sec:authorize="hasAnyAuthority('Admin','Editor')">
         <th>Enabled</th>
         </th:block>

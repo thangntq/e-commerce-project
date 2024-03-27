@@ -3,10 +3,11 @@ package com.shopme.admin.category.controller;
 import com.shopme.admin.FileUploadUtil;
 import com.shopme.admin.category.CategoryPageInfo;
 import com.shopme.admin.category.Service.CategoryService;
-import com.shopme.admin.category.exception.CategoryNotFoundException;
+
 import com.shopme.admin.category.exporter.CategoryCsvExporter;
-import com.shopme.admin.user.service.UserService;
+
 import com.shopme.common.entity.Category;
+import com.shopme.common.exception.CategoryNotFoundException;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -19,7 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
+
 
 @Controller
 @RequestMapping("/categories")
