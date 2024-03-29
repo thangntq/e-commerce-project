@@ -60,6 +60,8 @@ function deleteCountry() {
 
 }
 function updateCountry() {
+    if (!validateFormCountry()) return;
+
     url = contextPath + "countries/save";
     countryName = fieldCountryName.val();
     countryCode = fieldCountryCode.val();
@@ -84,6 +86,7 @@ function updateCountry() {
     });
 }
 function addCountry() {
+    if (!validateFormCountry()) return;
     url = contextPath + "countries/save";
     countryName = fieldCountryName.val();
     countryCode = fieldCountryCode.val();
@@ -102,6 +105,15 @@ function addCountry() {
     }).fail(function () {
         showToastMessage("ERROR: Could not connect to server or server encountered an error");
     });
+}
+function validateFormCountry() {
+    formCountry = document.getElementById("formCountry");
+    if (!formCountry.checkValidity()) {
+        formCountry.reportValidity();
+        return false;
+    }
+
+    return true;
 }
 function selectNewlyAddedCountry(countryId,countryCode,countryName) {
     optionValue = countryId + "-" + countryCode;

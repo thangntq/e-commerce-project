@@ -8,7 +8,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
 @DataJpaTest
@@ -20,22 +22,15 @@ public class SettingRepositoryTest {
 
     @Test
     public void testCreateGeneralSetting(){
-        Setting siteName = new Setting("SITE_NAME","Shopme", SettingCategory.GENERAL);
+        Setting mailFrom = new Setting("MAIL_FROM", "shopme@gmail.com", SettingCategory.MAIL_SEVER);
 
-        Setting saveSetting = settingRepository.save(siteName);
-        assertThat(saveSetting).isNotNull();
+        settingRepository.delete(mailFrom);
     }
     @Test
     public void testCreateCurrencySettings() {
-        Setting currencyId = new Setting("CURRENCY_ID", "1", SettingCategory.CURRENCY);
-        Setting symbol = new Setting("CURRENCY_SYMBOL", "$", SettingCategory.CURRENCY);
-        Setting symbolPosition = new Setting("CURRENCY_SYMBOL_POSITION", "before", SettingCategory.CURRENCY);
-        Setting decimalPointType = new Setting("DECIMAL_POINT_TYPE", "POINT", SettingCategory.CURRENCY);
-        Setting decimalDigits = new Setting("DECIMAL_DIGITS", "2", SettingCategory.CURRENCY);
-        Setting thousandsPointType = new Setting("THOUSANDS_POINT_TYPE", "COMMA", SettingCategory.CURRENCY);
+        Setting mailFrom = new Setting("CUSTOMER_VERIFY_CONTENT", "email content", SettingCategory.MAIL_TEMPLATES);
 
-        settingRepository.saveAll(List.of(currencyId, symbol, symbolPosition, decimalPointType,
-                decimalDigits, thousandsPointType));
+        settingRepository.save(mailFrom);
 
     }
 }

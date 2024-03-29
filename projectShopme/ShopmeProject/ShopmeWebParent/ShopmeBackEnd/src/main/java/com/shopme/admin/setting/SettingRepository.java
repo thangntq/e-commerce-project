@@ -13,4 +13,6 @@ public interface SettingRepository extends CrudRepository<Setting,String> {
 
 
     public List<Setting> findByCategory(SettingCategory category);
+
+
 }

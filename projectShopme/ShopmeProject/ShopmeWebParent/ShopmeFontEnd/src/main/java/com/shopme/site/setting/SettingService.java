@@ -13,19 +13,18 @@ public class SettingService {
     @Autowired
     private SettingRepository settingRepository;
 
-    public List<Setting> listAllSettings(){
-
-        return (List<Setting>) settingRepository.findAll();
-    }
 
     public List<Setting> getGeneralSettings(){
-        List<Setting> settings = new ArrayList<>();
-        List<Setting> generalSettings = settingRepository.findByCategory(SettingCategory.GENERAL);
-        List<Setting> currencySettings = settingRepository.findByCategory(SettingCategory.CURRENCY);
-        settings.addAll(generalSettings);
-        settings.addAll(currencySettings);
 
-        return settings;
+
+        return settingRepository.findByTwoCategories(SettingCategory.GENERAL,SettingCategory.CURRENCY);
     }
+    public EmailSettingBag getEmailSettings() {
+        List<Setting> settings = settingRepository.findByCategory(SettingCategory.MAIL_SEVER);
+        settings.addAll(settingRepository.findByCategory(SettingCategory.MAIL_TEMPLATES));
+
+        return new EmailSettingBag(settings);
+    }
+
 
 }

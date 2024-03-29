@@ -73,4 +73,8 @@ public class Customer {
                 ", country=" + country +
                 '}';
     }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
 }

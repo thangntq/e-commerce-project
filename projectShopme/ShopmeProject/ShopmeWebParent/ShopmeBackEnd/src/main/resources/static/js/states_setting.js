@@ -65,7 +65,15 @@ function deleteState() {
         showToastMessage("ERROR: Could not connect to server or server encountered an error");
     });
 }
+function validateFormState() {
+    formState = document.getElementById("formState");
+    if (!formState.checkValidity()) {
+        formState.reportValidity();
+        return false;
+    }
 
+    return true;
+}
 function updateState() {
     if (!validateFormState()) return;
 
@@ -97,6 +105,7 @@ function updateState() {
 }
 
 function addState() {
+
     if (!validateFormState()) return;
 
     url = contextPath + "states/save";
@@ -125,15 +134,7 @@ function addState() {
 
 }
 
-function validateFormState() {
-    formState = document.getElementById("formState");
-    if (!formState.checkValidity()) {
-        formState.reportValidity();
-        return false;
-    }
 
-    return true;
-}
 
 function selectNewlyAddedState(stateId, stateName) {
     $("<option>").val(stateId).text(stateName).appendTo(dropDownStates);
